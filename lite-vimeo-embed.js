@@ -108,6 +108,10 @@ class LiteVimeo extends (globalThis.HTMLElement ?? class {}) {
   }
 
   connectedCallback() {
+    // check to make sure it only initializes once
+    if (this._initialized) return;
+    this._initialized = true;
+    
     this.videoId = this.getAttribute('videoid');
 
     /**
